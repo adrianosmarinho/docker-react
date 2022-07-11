@@ -6,5 +6,6 @@ COPY . .
 RUN npm run build
 
 FROM nginx as runner
+EXPOSE 80
 COPY --from=builder /app/build /usr/share/nginx/html
 # no need to specify a command to start nginx because the default command of the image will start it
